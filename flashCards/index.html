@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bujo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="main.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="controls">
+      Grandes cartes: <input id="cardToggle" type="checkbox" /><br />
+      Couleur: <select id="colorChooser" name="color" id="color-select">
+        <option value="red">Rouge</option>
+        <option value="green">Vert</option>
+        <option value="cyan">Bleu</option>
+        <option value="orange">Orange</option>
+        <option value="purple">Violet</option>
+      </select>
+    </div>
+    <page>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div class="hiddable">9</div>
+      <div class="hiddable">10</div>
+      <div class="hiddable">11</div>
+      <div class="hiddable">12</div>
+      <div class="hiddable">13</div>
+      <div class="hiddable">14</div>
+      <div class="hiddable">15</div>
+      <div class="hiddable">16</div>
+    </page>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $("#cardToggle").on("click", function (event) {
+        let checked = $(this).is(":checked");
+        $(".hiddable").toggleClass("hidden");
+      });
+
+      $("#colorChooser").on("change", function (event) {
+        $("#colorChooser option").each(function () {
+          var selected = $(this).is(":selected");
+          var className = $(this).val();
+          if (selected) $("page > div").addClass(className);
+          else $("page > div").removeClass(className);
+        });
+      });
+    </script>
+  </body>
+</html>

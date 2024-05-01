@@ -1,0 +1,99 @@
+body {
+  background: #222222;
+  font-family: 'Berkshire Swash';
+  /*color: #EEEEEE;*/
+  /*font-size: 3.6mm;*/
+}
+
+page {
+  width: 21cm;
+  height: 29.7cm;
+
+  margin: 0 auto;
+  margin-bottom: 1cm;
+
+  box-shadow: 0 0 1cm rgba(0, 0, 0, 0.5);
+
+  background: white;
+  /*background-image: url("dots.png");*/
+  background-image: url("4dots.png");
+  /*background-image: radial-gradient(lightGray 8%, transparent 12%);*/
+  background-size: 20mm 20mm;
+  background-position: 4.5mm 1.9mm;
+
+  display: flex;
+  flex-flow: column;
+  page-break-after: always;
+}
+
+page[format="landscape"] {
+  height: 21cm;
+  width: 29.7cm;
+}
+
+page {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1px;
+}
+
+page div {
+  border: 10px solid;
+}
+
+page div.hidden {
+  display: none;
+}
+
+.controls {
+  position: fixed;
+  background-color: lightgrey;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.red {
+  border-color: red;
+}
+
+.green {
+  border-color: green;
+}
+
+.orange {
+  border-color: orange;
+}
+
+.cyan {
+  border-color: CornflowerBlue;
+}
+
+.purple {
+  border-color: RebeccaPurple;
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  body {
+    background: white;
+  }
+
+  body,
+  page {
+    margin: 0 0 0 0;
+    box-shadow: none;
+    height: 29.6cm;
+  }
+
+  .controls {
+    display: none;
+  }
+
+
+  page div {
+    color: transparent;
+  }
+}
